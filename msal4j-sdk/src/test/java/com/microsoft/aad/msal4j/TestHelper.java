@@ -46,13 +46,13 @@ class TestHelper {
             "\"tid\": \"%s\"," +
             "\"ver\": \"2.0\"}";
 
-    static X509Certificate x509Cert = getX509Cert();
-    static PrivateKey privateKey = getPrivateKey();
-
     public static String CERTIFICATE_ALIAS = "LabAuth.MSIDLab.com";
     private static final String WIN_KEYSTORE = "Windows-MY";
     private static final String KEYSTORE_PROVIDER = "SunMSCAPI";
     private static final String MAC_KEYSTORE = "KeychainStore";
+
+    static X509Certificate x509Cert = getX509Cert();
+    static PrivateKey privateKey = getPrivateKey();
 
     static String readResource(Class<?> classInstance, String resource) {
         try {
@@ -169,7 +169,7 @@ class TestHelper {
             x509Cert = (X509Certificate) keystore.getCertificate(
                     CERTIFICATE_ALIAS);
         } catch (Exception e) {
-            throw new RuntimeException("Error getting certificate from keystore: " + e.getMessage());
+            throw new RuntimeException("Error getting certificate from keystore", e);
         }
     }
 
